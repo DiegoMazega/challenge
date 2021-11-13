@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Solidary Ride</string>
+    <string name="title_activity_act_main">actMain</string>
+    <string name="title_activity_act_ride">Ride</string>
+    <string name="lbl_nome">Nome</string>
+    <string name="lbl_from">From</string>
+    <string name="lbl_to">To</string>
+    <string name="lbl_nextTo">Next To</string>
+    <string name="lbl_number">Number</string>
+    <string name="menu_action_ok">Ok</string>
+    <string name="menu_action_cancel">Cancel</string>
+    <string name="title_aviso">Aviso</string>
+    <string name="title_mensagem">Há Campos Em Branco ou Invalido</string>
+    <string name="message_conection_ok">Conection created</string>
+    <string name="action_ok">OK</string>
+    <string name="tittle_erro">ERRO</string>
+    <string name="menu_action_excluir">Excluir</string>
+</resources>
