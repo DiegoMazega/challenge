@@ -1,6 +1,7 @@
 package com.diegomazega.chanllenge.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
@@ -25,7 +26,7 @@ public class Pessoa implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer id;
+	private Long id;
 	
 	@Column(unique = true)
 	private String nome;
@@ -38,29 +39,28 @@ public class Pessoa implements Serializable {
 	private Set<String> telefones = new HashSet<>();
 	
 	@OneToMany(mappedBy = "pessoa", cascade = CascadeType.ALL)
-	private List<Endereco> endereco;
+	private List<Endereco> enderecos = new ArrayList<>();
 	
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "funcionario_id")
 	@MapsId
 	private Funcionario funcionario;
 
 	public Pessoa() {}
 	
-	public Pessoa(Integer id, String nome, Integer idade, List<Endereco> endereco, Funcionario funcionario) {
+	public Pessoa(Long id, String nome, Integer idade, Set<String> telefones) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.idade = idade;
-		this.endereco = endereco;
-		this.funcionario = funcionario;
+		this.telefones = telefones;
 	}
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -80,12 +80,12 @@ public class Pessoa implements Serializable {
 		this.idade = idade;
 	}
 
-	public List<Endereco> getEndereco() {
-		return endereco;
+	public List<Endereco> getEnderecos() {
+		return enderecos;
 	}
 
-	public void setEndereco(List<Endereco> endereco) {
-		this.endereco = endereco;
+	public void setEnderecos(List<Endereco> endereco) {
+		this.enderecos = endereco;
 	}
 
 	public Funcionario getFuncionario() {

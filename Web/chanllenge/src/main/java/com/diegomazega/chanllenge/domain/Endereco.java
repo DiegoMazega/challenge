@@ -19,7 +19,7 @@ public class Endereco implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer id;
+	private Long id;
 	
 	@Column()
 	private String cidadeNome;
@@ -32,24 +32,25 @@ public class Endereco implements Serializable {
 	
 	@JsonIgnore
 	@ManyToOne
-	@JoinColumn(name="pessoa_id")
+	@JoinColumn(name="pessoa_id", nullable=false)
 	private Pessoa pessoa;
 
 	public Endereco() {}
 	
-	public Endereco(Integer id, String cidadeNome, String cidadeBairro, String cep) {
+	public Endereco(Long id, String cidadeNome, String cidadeBairro, String cep, Pessoa pessoa) {
 		super();
 		this.id = id;
 		this.cidadeNome = cidadeNome;
 		this.cidadeBairro = cidadeBairro;
 		this.cep = cep;
+		this.pessoa = pessoa;
 	}
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

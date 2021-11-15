@@ -11,13 +11,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Funcionario implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer id;
+	private Long id;
 	
 	@Column()
 	private String cargo;
@@ -28,24 +30,26 @@ public class Funcionario implements Serializable {
 	@Column()
 	private String empresa;
 	
+	@JsonIgnore
 	@OneToOne(cascade = CascadeType.ALL, mappedBy = "funcionario")
 	private Pessoa pessoa;
 
 	public Funcionario() {}
 	
-	public Funcionario(Integer id, String cargo, String empresa, Pessoa pessoa) {
+	public Funcionario(Long id, String cargo, String empresa, String nome, Pessoa pessoa) {
 		super();
 		this.id = id;
 		this.cargo = cargo;
 		this.empresa = empresa;
 		this.pessoa= pessoa;
+		this.nome = nome;
 	}
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
