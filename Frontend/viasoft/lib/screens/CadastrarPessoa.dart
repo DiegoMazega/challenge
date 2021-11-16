@@ -171,7 +171,14 @@ class _CadastarPessoaState extends State<CadastarPessoa> {
                                     _nomeFuncionarioController.text,
                                 nomeEmpresa: _nomeEmpresaController.text)
                             .then((value) {
-                          final String textSnack = value == 201 ? "Pessoa Cadastrada": "Erro ao cadastrar Pessoa, revise os Campos, por favor";
+                          String textSnack;
+                          if (value == 400) {
+                            textSnack = "Nome Já Cadastrado";
+                          } else {
+                            textSnack = value == 201
+                                ? "Pessoa Cadastrada"
+                                : "Erro ao cadastrar Pessoa, revise os Campos, por favor";
+                          }
                           final snackBar = SnackBar(
                             content: Text(textSnack),
                             action: SnackBarAction(
