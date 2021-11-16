@@ -14,7 +14,7 @@ import com.diegomazega.chanllenge.services.validation.PessoaInsert;
 public class PessoaDTO {
 	
 	@NotEmpty(message = "Preennchimmento Obrigatório")
-	@Length(min = 5 , max = 120, message = "O tamanho tem que ser entre 5 e 80 caracteres")
+	@Length(min = 1, max = 50, message = "O tamanho tem que ser entre 5 e 80 caracteres")
 	private String nome;
 	
 	@NotNull(message = "Preennchimmento Obrigatório")
@@ -24,25 +24,27 @@ public class PessoaDTO {
 	private Set<String> telefones = new HashSet<>();
 
 	@NotEmpty(message = "Preennchimmento Obrigatório")
-	@Length(min = 5 , max = 120, message = "O tamanho tem que ser entre 5 e 80 caracteres")
+	@Length(min = 1, max = 50, message = "O tamanho tem que ser entre 5 e 80 caracteres")
 	private String cidadeNome;
 	
 	@NotEmpty(message = "Preennchimmento Obrigatório")
-	@Length(min = 5 , max = 120, message = "O tamanho tem que ser entre 5 e 80 caracteres")
+	@Length(min = 1, max = 50, message = "O tamanho tem que ser entre 5 e 80 caracteres")
 	private String cidadeBairro;
 	
 	@NotEmpty(message = "Preennchimmento Obrigatório")
+	@Length(min = 1, max = 8, message = "O tamanho tem que ser entre 5 e 80 caracteres")
 	private String cep;
 	
 	@NotEmpty(message = "Preennchimmento Obrigatório")
+	@Length(min = 1, max = 50, message = "O tamanho tem que ser entre 5 e 80 caracteres")
 	private String cargo;
 	
 	@NotEmpty(message = "Preennchimmento Obrigatório")
-	@Length(min = 5 , max = 120, message = "O tamanho tem que ser entre 5 e 80 caracteres")
+	@Length(min = 1, max = 50, message = "O tamanho tem que ser entre 5 e 80 caracteres")
 	private String funcionarioNome;
 	
 	@NotEmpty(message = "Preennchimmento Obrigatório")
-	@Length(min = 5 , max = 120, message = "O tamanho tem que ser entre 5 e 80 caracteres")
+	@Length(min = 1, max = 50, message = "O tamanho tem que ser entre 5 e 80 caracteres")
 	private String empresa;
 	
 	public PessoaDTO() {}
