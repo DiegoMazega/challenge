@@ -8,17 +8,12 @@ import 'package:viasoft/screens/ListarEnderecos.dart';
 import 'package:viasoft/screens/ListarPessoas.dart';
 import 'package:viasoft/widgets/CustomAppBar.dart';
 
-class Home extends StatefulWidget {
+class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
 
   @override
-  _HomeState createState() => _HomeState();
-}
-
-class _HomeState extends State<Home> {
-  @override
   Widget build(BuildContext context) {
-    return Scaffold(
+     return Scaffold(
       appBar: AppBars(titleText: "Viasoft"),
       body: Container(
         padding: const EdgeInsets.all(40),

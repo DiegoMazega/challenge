@@ -7,27 +7,8 @@ import 'package:viasoft/screens/PessoaInformation.dart';
 import 'package:viasoft/services/Requests.dart';
 import 'package:viasoft/widgets/CustomAppBar.dart';
 
-class ListarPessoas extends StatefulWidget {
+class ListarPessoas extends StatelessWidget {
   const ListarPessoas({Key? key}) : super(key: key);
-
-  @override
-  _ListarPessoasState createState() => _ListarPessoasState();
-}
-
-class _ListarPessoasState extends State<ListarPessoas> {
-  late Future<List<Pessoa>> _listPessoa;
-
-  @override
-  void initState() {
-    super.initState();
-    print("começo");
-    _listPessoa = Requests.getPessoaList();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +21,7 @@ class _ListarPessoasState extends State<ListarPessoas> {
     return Scaffold(
         appBar: AppBars(titleText: "Lista De Pessoas"),
         body: FutureBuilder<List<Pessoa>>(
-          future: _listPessoa,
+          future: Requests.getPessoaList(),
           builder: (BuildContext context, AsyncSnapshot snapshot) {
             switch (snapshot.connectionState) {
               case ConnectionState.none:
